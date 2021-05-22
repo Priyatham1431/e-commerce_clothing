@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import data from "../../data";
+import data from "../../data/data";
 import MenuItem from "../menu-item/MenuItem";
 import "./Directory.scss";
 
