@@ -1,8 +1,9 @@
 import React from "react";
 import "./Header.scss";
 import { Link } from "react-router-dom";
+import { auth } from "../../Firebase/firebase.utils";
 
-const Header = () => {
+const Header = ({ currentUser }) => {
   return (
     <div className="header">
       <Link to="/" className="logo-container">
@@ -22,9 +23,15 @@ const Header = () => {
         <Link to="/contact" className="option">
           Contact
         </Link>
-        <Link to="/login" className="option">
-          Login
-        </Link>
+        {currentUser ? (
+          <div className="option" onClick={() => auth.signOut()}>
+            Logout
+          </div>
+        ) : (
+          <Link to="/login" className="option">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

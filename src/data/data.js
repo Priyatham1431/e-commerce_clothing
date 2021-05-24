@@ -9,7 +9,7 @@ var data = [
   {
     title: "jackets",
     imageUrl:
-      "https://lh3.googleusercontent.com/proxy/gfuLnr3QzH5FE9--L-1zzUwcT5ovq0pHgENPpH7tKTgmg63PySyEyFz1TKRx3cCCgE_NT50tcu8X2_H3SYglKb6sNSIu5NE5rrscpB0gxBrM0cU5n-w3ExsnseOtOru4FpyKvfNUtQmhF3kDhho0",
+      "https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/sites/2/2018/01/10223307/Thunderbird1.jpg",
     id: 2,
     linkUrl: "",
   },

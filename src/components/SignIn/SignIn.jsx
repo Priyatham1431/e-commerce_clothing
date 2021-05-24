@@ -3,7 +3,7 @@ import "./SignIn.scss";
 import { useState } from "react";
 import FormInput from "../form-input/FormInput";
 import CustomButton from "../custom-button/CustomButton";
-import {signInWithGoogle} from '../../Firebase/firebase.utils';
+import { signInWithGoogle } from "../../Firebase/firebase.utils";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -19,15 +19,14 @@ const SignIn = () => {
     setPassword(e.target.value);
   };
   const handleSubmit = (e) => {
-      e.preventDefault();
-      setEmail('');
-      setPassword('');
+    e.preventDefault();
+    setEmail("");
+    setPassword("");
   };
 
   return (
     <div className="sign-in">
       <form onSubmit={handleSubmit}>
-      
         <FormInput
           type="email"
           value={email}
@@ -44,9 +43,12 @@ const SignIn = () => {
           label="Password"
           required
         />
-        
-        <CustomButton type="submit">Sign In</CustomButton>
-        <CustomButton onClick={signInWithGoogle}>Sign in with Google</CustomButton>
+        <div className="buttons">
+          <CustomButton type="submit">Sign In</CustomButton>
+          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            Sign In With Google
+          </CustomButton>
+        </div>
       </form>
     </div>
   );
