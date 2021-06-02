@@ -4,6 +4,7 @@ import { useState } from "react";
 import FormInput from "../form-input/FormInput";
 import CustomButton from "../custom-button/CustomButton";
 import { signInWithGoogle } from "../../Firebase/firebase.utils";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -49,6 +50,7 @@ const SignIn = () => {
             Sign In With Google
           </CustomButton>
         </div>
+        <p>New User? <Link to='/signup'>SignUp</Link></p>
       </form>
     </div>
   );
