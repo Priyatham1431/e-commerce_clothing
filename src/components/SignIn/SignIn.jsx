@@ -3,7 +3,7 @@ import "./SignIn.scss";
 import { useState } from "react";
 import FormInput from "../form-input/FormInput";
 import CustomButton from "../custom-button/CustomButton";
-import { signInWithGoogle } from "../../Firebase/firebase.utils";
+import { auth, signInWithGoogle } from "../../Firebase/firebase.utils";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
@@ -12,17 +12,21 @@ const SignIn = () => {
 
   const handleEmail = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     setEmail(e.target.value);
   };
   const handlePassword = (e) => {
     e.preventDefault();
     setPassword(e.target.value);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setEmail("");
-    setPassword("");
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      setEmail("");
+      setPassword("");
+    } catch (e) {
+      console.log("Error at signInEmail");
+    }
   };
 
   return (
@@ -46,11 +50,13 @@ const SignIn = () => {
         />
         <div className="buttons">
           <CustomButton type="submit">Sign In</CustomButton>
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+          <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
             Sign In With Google
           </CustomButton>
         </div>
-        <p>New User? <Link to='/signup'>SignUp</Link></p>
+        <p>
+          New User? <Link to="/signup">SignUp</Link>
+        </p>
       </form>
     </div>
   );
